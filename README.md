@@ -132,4 +132,7 @@ status:
   
   
   # Now you have one LB pointint to your nginx ingress controller and can loadbalancer all your traffic with ingress rules
+  
+  # Deploy something and create an ingress rule and test it.
+  curl -k --verbose --header 'Host: helloworld-v1.ghettolabs.io' 'https://ExternalLoadBalancer'
 ```
