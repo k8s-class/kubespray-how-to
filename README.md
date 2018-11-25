@@ -78,6 +78,7 @@ ansible-playbook -vvvv -b --user=ubuntu -i inventory/hosts cluster.yml -e ansibl
 # When cluster is complete stand up an nginx-ingress controller
 
 kubectl edit service ingress-controller
+make sure its of type NodePort for all onprem or baremetal type clusters
 add your internal IP Addresses as External Addresses like this under the spec stanza:
 externalIPs:
   - 10.250.195.240
