@@ -84,6 +84,49 @@ externalIPs:
   - 10.250.217.196
   - 10.250.202.109
   
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018-11-25T18:53:18Z
+  labels:
+    app: nginx-ingress
+    chart: nginx-ingress-0.31.0
+    component: controller
+    heritage: Tiller
+    release: my-ingress-controller
+  name: my-ingress-controller-nginx-ingress-controller
+  namespace: default
+  resourceVersion: "3157"
+  selfLink: /api/v1/namespaces/default/services/my-ingress-controller-nginx-ingress-controller
+  uid: 5f88285b-f0e3-11e8-a058-1279558f86be
+spec:
+  clusterIP: 10.233.36.58
+  externalIPs:
+  - 10.250.195.240
+  - 10.250.217.196
+  - 10.250.202.109
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: http
+    nodePort: 30108
+    port: 80
+    protocol: TCP
+    targetPort: http
+  - name: https
+    nodePort: 31727
+    port: 443
+    protocol: TCP
+    targetPort: https
+  selector:
+    app: nginx-ingress
+    component: controller
+    release: my-ingress-controller
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
+
+  
   # Create a load balancer in the cloud and point it the ip addresses you just added.
   
   
