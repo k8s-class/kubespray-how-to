@@ -75,4 +75,16 @@ cloud_proviider: aws
 ansible-playbook -vvvv -b --user=ubuntu -i inventory/hosts cluster.yml -e ansible_user=ubuntu -e ansible_ssh_private_key_file=ansible.pem
 ```
 
+# When cluster is complete stand up an nginx-ingress controller
 
+kubectl edit service ingress-controller
+add your internal IP Addresses as External Addresses like this under the spec stanza:
+externalIPs:
+  - 10.250.195.240
+  - 10.250.217.196
+  - 10.250.202.109
+  
+  # Create a load balancer in the cloud and point it the ip addresses you just added.
+  
+  
+  # Now you have one LB pointint to your nginx ingress controller and can loadbalancer all your traffic with ingress rules
