@@ -74,7 +74,7 @@ cloud_proviider: aws
 ```
 ansible-playbook -vvvv -b --user=ubuntu -i inventory/hosts cluster.yml -e ansible_user=ubuntu -e ansible_ssh_private_key_file=ansible.pem
 ```
-
+```
 # When cluster is complete stand up an nginx-ingress controller
 
 kubectl edit service ingress-controller
@@ -88,3 +88,4 @@ externalIPs:
   
   
   # Now you have one LB pointint to your nginx ingress controller and can loadbalancer all your traffic with ingress rules
+```
